@@ -1,5 +1,25 @@
 return {
-	{
+    {
+        "echasnovski/mini.pairs",
+
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            {
+                "<leader>up",
+                function()
+                    vim.g.minipairs_disable = not vim.g.minipairs_disable
+                    -- if vim.g.minipairs_disable then
+                    --     LazyVim.warn("Disabled auto pairs", { title = "Option" })
+                    -- else
+                    --     LazyVim.info("Enabled auto pairs", { title = "Option" })
+                    -- end
+                end,
+                desc = "Toggle Auto Pairs",
+            },
+        },
+    },
+    {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	{
@@ -42,10 +62,8 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					-- { name = "vsnip" }, -- For vsnip users.
+					{ name = "path" },
 					{ name = "luasnip" }, -- For luasnip users.
-					-- { name = 'ultisnips' }, -- For ultisnips users.
-					-- { name = 'snippy' }, -- For snippy users.
 				}, {
 					{ name = "buffer" },
 				}),
