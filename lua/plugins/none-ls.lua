@@ -12,7 +12,9 @@ return {
                 null_ls.builtins.formatting.prettier,
                 null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.isort,
+                null_ls.builtins.diagnostics.mypy,
                 require("none-ls.diagnostics.eslint_d"),
+                require("none-ls.diagnostics.ruff"),
             },
         })
 

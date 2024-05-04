@@ -2,7 +2,12 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+                ensure_installed = {
+                    "debugpy",
+					"mypy",
+                }
+            })
 		end,
 	},
 	{
@@ -12,9 +17,12 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"tsserver",
-					"clangd",
+                    "clangd",
+                    "cmake",
 					"cssls",
 					"html",
+					"pyright",
+					"ruff",
 				},
 			})
 		end,
@@ -31,6 +39,22 @@ return {
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.cmake.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
@@ -46,4 +70,5 @@ return {
 			-- refer to the configuration section below
 		},
 	},
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 }
