@@ -20,7 +20,6 @@ return {
                     "clangd",
                     "cmake",
 					"cssls",
-					"html",
 					"pyright",
 					"ruff",
 				},
